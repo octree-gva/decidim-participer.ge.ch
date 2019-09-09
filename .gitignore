@@ -32,3 +32,8 @@
 
 # Ignore public uploads
 public/uploads
+nfs/
+
+# Ignore Dotenv files
+.env*
+!.env.tmpl
