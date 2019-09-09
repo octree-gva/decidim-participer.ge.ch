@@ -1,7 +1,9 @@
-version: '3'
+version: "3"
 services:
   app:
-    image: decidim/decidim:0.17.2
+    image: decidim
+    build:
+      context: .
     volumes:
       - .:/app
       - bundle:/usr/local/bundle
@@ -10,16 +12,23 @@ services:
       - PORT=3000
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=p28ZRFZeitqovv9Puvse
       - RAILS_ENV=development
+      - SECRET_KEY_BASE=J9jEZgGFudNB4kEeqYHwoht4IQvinBhf
     ports:
       - 3000:3000
     links:
       - pg
-    command: bundle exec puma
+
   pg:
     image: postgres
     volumes:
       - pg-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=p28ZRFZeitqovv9Puvse
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=decidim_app_development
+
 volumes:
   node_modules: {}
   bundle: {}
