@@ -1,0 +1,11 @@
+# Import des templates de jobs pré-configurés
+include:
+  - project: o/infra/templates
+    file: /gitlab-ci/includes/jobs.yaml
+
+stages:
+  - build
+
+# Construction d'une image Docker
+Build:
+  extends: .build
