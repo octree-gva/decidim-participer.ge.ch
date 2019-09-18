@@ -37,7 +37,7 @@ Après quelques secondes, le container se met en écoute sur le port 80 de l’h
 Lorsque le container Decidim est lancé, on peut lancer la migration des schémas de la base de données pour l’initialiser.
 
 ```bash
-docker-compose exec -T app rails db:migrate
+docker-compose -f docker-compose-prod.yml exec -T app rails db:migrate
 ```
 
 Si la connexion au serveur Postgres est correcte et que la base de données précisée dans le fichier `.env` existe, alors la migration devrait s’effectuer sans problème.
