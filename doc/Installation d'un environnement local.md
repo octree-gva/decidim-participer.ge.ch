@@ -97,6 +97,29 @@ Decidim::System::Admin.last.update_attributes(password: "<nouveau_mdp>", passwor
 
 L'opération doit renvoyer "=> true" en console, qui confirme la sauvegarde en base de donnée de la nouvelle valeur.
 
+## Changer le mot de passe d'un admin d'une organisation
+
+Ouvrir une console rails:
+
+```bash
+docker-compose exec -T app rails c
+```
+
+Trouver l'utilisateur correspondant à l'admin de l'organisation, dont on veut modifier le mot de passe.
+Pour cela, il nous faut l'email de l'utilisateur ainsi que l'id de l'oraganisation que l'on trouve dans l'url http://localhost:3000/system/organizations/:id.
+
+```bash
+user = Decidim::User.where(email: <email>, decidim_organization_id: <id>, admin: true).first
+````
+
+Mettre à jour les champs password
+
+```bash
+user.update_attributes(password: "<nouveau_password>", password_confirmation: "<nouveau_password>")
+```
+
+
+
 ## Résolution de bugs
 
 ### Problèmes de routes
@@ -106,7 +129,7 @@ Message d'erreur rails:
     Routing Error
     No routes matches
     ```
-L'url consulté ne corrspond à aucune route de l'application.
+L'url consulté ne correspond à aucune route de l'application.
 Pour obtenir la liste de toutes les routes de l'application:
 
 ```bash
