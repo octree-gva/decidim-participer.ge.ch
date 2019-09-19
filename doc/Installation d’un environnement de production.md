@@ -2,12 +2,12 @@
 
 ## 1. Récupération des sources
 
-Dans un premier temps, on récupère les sources depuis le dépôt Git.
+Dans un premier temps, on récupère la configuration Docker compose (*docker-compose-\*.yml*) sur la machine hôte de l'application ainsi que le template de fichier .env (*.env.tmpl*). Cela peut être fait notamment par Git.
 
-```bash
-git clone ssh://git@git.octree.ch:6118/decidim/ocsin.git decidim
-cd decidim
-```
+On doit ainsi avoir deux fichiers sur la machine hôte:
+
+- Un fichier docker-compose-<env>.yml correspondant à la configuration Docker
+- Une fichier `.env.tmpl` permettant de créer le fichier `.env` à la prochaine étape.
 
 ## 2. Configuration
 
@@ -20,7 +20,11 @@ cp .env.tmpl .env
 vi .env
 ```
 
-> Pour le SMTP, c’est le port 587 (TLS) qui est utilisé avec une authentification *plain*. Cela n’est pas modifiable par des variables d’environnement.
+La SECRET_KEY_BASE est utilisée pour la gestion des cookies de session et doit être différente pour chaque environnement pour des raisons de sécurité. Elle peut etre générée avec la commande `rails secret`:
+
+```bash
+docker run -it --rm git.octree.ch:4567/decidim/ocsin rails secret
+```
 
 ## 3. Lancement de l’application
 
