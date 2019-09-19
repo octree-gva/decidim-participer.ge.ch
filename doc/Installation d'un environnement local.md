@@ -66,11 +66,11 @@ En vous connectant à l'aide des identifiants de l'admin System créée plus hau
 ## Migrations nécessitant les droits SuperUser
 
 ```
-/Users/antoinemarmoux/code/ocsin/db/migrate/20190909123110_add_parent_child_relation_to_assemblies.decidim_assemblies.rb
+20190909123110_add_parent_child_relation_to_assemblies.decidim_assemblies.rb
 ```
 
 ```
-/Users/antoinemarmoux/code/ocsin/db/migrate/20190909123172_enable_pg_trgm_extension_for_proposals.decidim_proposals.rb
+20190909123172_enable_pg_trgm_extension_for_proposals.decidim_proposals.rb
 ```
 
 ## Gemfile et Gemfile.lock
