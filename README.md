@@ -1,5 +1,7 @@
 # Decidim
 
+**The full documentation for OCSIN can be found here: https://git.octree.ch/decidim/ocsin-doc** 
+
 Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
 This is the open-source repository for decidim_app, based on [Decidim](https://github.com/decidim/decidim).
