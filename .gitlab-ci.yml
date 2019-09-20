@@ -8,5 +8,7 @@ stages:
 
 # Construction d'une image Docker
 Build:
-  when: manual
   extends: .build
+  when: manual
+  only:
+    - tags
