@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = "My Application Name"
-  config.mailer_sender = "change-me@domain.org"
+  config.application_name = ENV["APPLICATION_NAME"]
+  config.mailer_sender = ENV["FROM_MAILER_ADDRESS"]
 
   # Change these lines to set your preferred locales
   config.default_locale = :fr
