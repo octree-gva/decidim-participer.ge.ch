@@ -6,7 +6,6 @@ services:
       context: .
     volumes:
       - .:/app
-      - bundle:/usr/local/bundle
       - node_modules:/app/node_modules
     environment:
       - PORT=3000
@@ -33,5 +32,4 @@ services:
 
 volumes:
   node_modules: {}
-  bundle: {}
   pg-data: {}

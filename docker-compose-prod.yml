@@ -3,7 +3,6 @@ services:
   app:
     image: git.octree.ch:4567/decidim/ocsin
     volumes:
-      - bundle:/usr/local/bundle
       - node_modules:/app/node_modules
       - ./storage/rails:/code/storage
       - ./storage/uploads:/code/public/uploads
@@ -17,4 +16,3 @@ services:
 
 volumes:
   node_modules: {}
-  bundle: {}
