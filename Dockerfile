@@ -11,10 +11,11 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 COPY . .
 RUN bundle install
-RUN bundle exec rake assets:precompile
+# Install Yarn
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 VOLUME /code/storage
 VOLUME /code/log
 
 ENTRYPOINT []
-CMD bundle exec rails s -b 0.0.0.0
+CMD bin/start

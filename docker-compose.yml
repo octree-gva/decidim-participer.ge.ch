@@ -5,7 +5,7 @@ services:
     build:
       context: .
     volumes:
-      - .:/app
+      - .:/code
       - node_modules:/app/node_modules
     environment:
       - PORT=3000
