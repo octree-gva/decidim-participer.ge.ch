@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Clean tmp directory if exists
+if [ -d /code/tmp ]; then
+    rm -r /code/tmp/
+fi
+# Clean assets
+bundle exec rake assets:clobber
+# Compile assets (including external stylesheets)
+bundle exec rake assets:precompile
+# Start Decidim server
+bundle exec rails s -b 0.0.0.0
