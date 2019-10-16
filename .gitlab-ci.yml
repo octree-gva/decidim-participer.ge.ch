@@ -9,7 +9,6 @@ stages:
 # Construction d'une image Docker
 Build:
   stage: build
-  when: manual
   only:
     - tags
   script:
