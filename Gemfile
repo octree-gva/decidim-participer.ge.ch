@@ -4,9 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", "0.17.2"
-gem "decidim-consultations", "0.17.2"
-# gem "decidim-initiatives", "0.17.2"
+gem "decidim", path: ".."
+gem "decidim-consultations", path: ".."
 
 gem "bootsnap", "~> 1.3"
 
@@ -16,9 +15,8 @@ gem "uglifier", "~> 4.1"
 gem "faker", "~> 1.9"
 
 group :development, :test do
-  gem "byebug", "~> 10.0", platform: :mri
-
-  gem "decidim-dev", "0.17.2"
+  gem "byebug", "~> 11.0", platform: :mri
+  gem "decidim-dev", path: ".."
 end
 
 group :development do
