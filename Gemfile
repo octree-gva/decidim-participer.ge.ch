@@ -6,6 +6,7 @@ ruby RUBY_VERSION
 
 gem "decidim", path: ".."
 gem "decidim-consultations", path: ".."
+gem "decidim-verifications", path: ".."
 
 gem "bootsnap", "~> 1.3"
 
