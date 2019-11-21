@@ -6,6 +6,7 @@ ENV RAILS_ENV=production
 ENV PORT=3000
 ENV RAILS_SERVE_STATIC_FILES=true
 ENV SECRET_KEY_BASE=no_need_for_such_secrecy
+ENV TZ=Europe/Zurich
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
