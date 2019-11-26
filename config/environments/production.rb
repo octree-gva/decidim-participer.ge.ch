@@ -95,7 +95,8 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   # Set log filename
-  logger = ActiveSupport::Logger.new("#{Rails.root}/log/#{ENV['LOG_FILENAME'] || 'production.log'}")
+  file = "#{Rails.root}/log/#{ENV['LOG_FILENAME'] || 'production.log'}"
+  logger = ActiveSupport::Logger.new("#{file}", 'daily')
   logger.formatter = config.log_formatter
   config.logger    = ActiveSupport::TaggedLogging.new(logger)
 
