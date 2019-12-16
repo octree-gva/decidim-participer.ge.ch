@@ -7,13 +7,14 @@ services:
       - ./storage/rails:/code/storage
       - ./storage/uploads:/code/public/uploads
       - ./storage/styles:/code/app/assets/stylesheets/organizations
+      - ./storage/certs:/certs
       - ./log:/code/log
     environment:
-      - PORT=80
+      - PORT=443
       - RAILS_ENV=production
     env_file: .env
     ports:
-      - 80:80
+      - 443:443
 
 volumes:
   node_modules: {}
