@@ -799,6 +799,7 @@ fr:
         duplicate: Dupliquer
         edit: Modifier
         export: Exporter
+        import_process: Importer
         manage: Gérer
         new: 'Nouveau %{name}'
         new_assembly: Nouvel assemblée
