@@ -24,7 +24,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 
 # HTTPS inteface
-ssl_bind '0.0.0.0', '443', { key: '/certs/privkey.pem', cert: '/certs/fullchain.pem' }
+ssl_bind '0.0.0.0', '8443', { key: '/certs/privkey.pem', cert: '/certs/fullchain.pem' }
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code

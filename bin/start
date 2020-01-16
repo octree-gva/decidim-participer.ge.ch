@@ -4,9 +4,20 @@
 if [ -d /code/tmp ]; then
     rm -r /code/tmp/
 fi
-# Clean assets
-bundle exec rake assets:clobber
-# Compile assets (including external stylesheets)
-bundle exec rake assets:precompile
-# Start Decidim server
-bundle exec puma -C config/puma.rb
+
+# Set user
+addgroup --system --gid ${GROUP:-1000} app
+adduser --system --no-create-home --uid ${USER:-1000} --gid ${GROUP:-1000} app
+
+# Update permissions on app files
+chown -R app:app /code
+
+# Start puma as user 'app'
+su -m app -s /bin/bash <<'EOF'
+    # Clean assets
+    bundle exec rake assets:clobber
+    # Compile assets (including external stylesheets)
+    bundle exec rake assets:precompile
+    # Start Decidim server
+    bundle exec puma -C config/puma.rb
+EOF
