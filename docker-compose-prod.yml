@@ -10,11 +10,11 @@ services:
       - ./storage/certs:/certs
       - ./log:/code/log
     environment:
-      - PORT=443
+      - PORT=8443
       - RAILS_ENV=production
     env_file: .env
     ports:
-      - 443:443
+      - 443:8443
 
 volumes:
   node_modules: {}
