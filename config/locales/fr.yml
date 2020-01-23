@@ -450,7 +450,7 @@ fr:
         profile_updated_event: Profil mis à jour
         promote_to_admin: Promu au groupe admin
         proposals:
-          accepted_proposal_event: Proposition retenue
+          accepted_proposal_event: Proposition acceptée
           admin:
             update_proposal_category_event: Catégorie de proposition modifiée
           creation_enabled_event: Autoriser la création de nouvelles propositions
@@ -3542,30 +3542,30 @@ fr:
         proposal_accepted:
           affected_user:
             email_intro: >-
-              Votre proposition "%{resource_title}" a été retenue. Vous pouvez
+              Votre proposition "%{resource_title}" a été acceptée. Vous pouvez
               lire la réponse sur cette page:
             email_outro: >-
               Vous avez reçu cette notification parce que vous êtes l'auteur de
               "%{resource_title}".
-            email_subject: Votre proposition a été retenue
+            email_subject: Votre proposition a été acceptée
             notification_title: >-
               Votre proposition <a href="%{resource_path}">%{resource_title}</a>
-              a été retenue.
+              a été acceptée.
           follower:
             email_intro: >-
-              La proposition "%{resource_title}" a été retenue. Vous pouvez lire
-              la réponse sur cette page :
+              La proposition "%{resource_title}" a été acceptée. Vous pouvez
+              lire la réponse sur cette page :
             email_outro: >-
               Vous venez de recevoir cette notification parce que vous êtes
               abonnés à "%{resource_title}". Vous pouvez à tout moment arrêter
               de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez a été retenue
+            email_subject: Une proposition que vous suivez a été acceptée
             notification_title: >-
               La proposition <a href="%{resource_path}">%{resource_title}</a> a
-              été retenue.
+              été acceptée.
         proposal_endorsed:
           email_intro: >-
-            %{endorser_name} %{endorser_nickname}, que vous suivez, vient
+            %{endorser_name} %{endorser_nickname}, qui vous suivez, vient
             d’approuver la proposition "%{resource_title}" et nous pensons que
             cela pourrait vous intéresser. Découvrez-le et contribuez:
           email_outro: >-
@@ -3644,15 +3644,15 @@ fr:
         proposal_rejected:
           affected_user:
             email_intro: >-
-              Votre proposition "%{resource_title}" n'a pas été retenue. Vous
-              pouvez lire la réponse sur cette page:
+              Votre proposition "%{resource_title}" a été rejetée. Vous pouvez
+              lire la réponse sur cette page:
             email_outro: >-
               Vous avez reçu cette notification parce que vous êtes l'auteur de
               "%{resource_title}".
-            email_subject: Votre proposition n'a pas été retenue
+            email_subject: Votre proposition a été rejetée
             notification_title: >-
               Votre proposition <a href="%{resource_path}">%{resource_title}</a>
-              n'a pas été retenue.
+              a été rejetée.
           follower:
             email_intro: >-
               La proposition "%{resource_title}" n'a pas été retenue. Vous
@@ -3893,14 +3893,14 @@ fr:
           description: >-
             Ce badge est attribué lorsque vous participez activement à de
             nouvelles propositions et que celles-ci sont acceptées.
-          description_another: '%{score} des propositions de cet utilisateur ont été retenues.'
-          description_own: '%{score} de vos propositions ont été retenues.'
-          name: Propositions retenues
+          description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
+          description_own: '%{score} de vos propositions ont été acceptées.'
+          name: Propositions acceptées
           next_level_in: >-
             Vous atteindrez le niveau suivant lorsque %{score} propositions
-            supplémentaires seront retenues !
-          unearned_another: Aucune proposition de cet auteur n'a encore été retenue.
-          unearned_own: Aucune de vos propositions n'a encore été retenue.
+            supplémentaires seront acceptés !
+          unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
+          unearned_own: Aucune de vos propositions n'a encore été acceptée.
         attended_meetings:
           conditions:
             '0': Inscrivez-vous aux réunions auxquelles vous souhaitez participer
@@ -4627,9 +4627,9 @@ fr:
           error: Message non envoyé. Réessayez plus tard
     metrics:
       accepted_proposals:
-        description: Nombre de propositions retenues par les utilisateurs
+        description: Nombre de propositions acceptées par les utilisateurs
         object: les propositions
-        title: Propositions Retenues
+        title: Propositions Acceptées
       assemblies:
         description: Nombre d'assemblages créés
         object: assemblées
@@ -4871,7 +4871,7 @@ fr:
           posts_count: Articles
           processes_count: Processus participatifs
           projects_count: Projets
-          proposals_accepted: Propositions retenues
+          proposals_accepted: Propositions acceptées
           proposals_count: Propositions
           results_count: Réalisations
           sortitions_count: Tirages au sort
@@ -5269,11 +5269,11 @@ fr:
           official: Propositions officielles
           user_groups: Groupes d'utilisateurs
         filter_state_values:
-          accepted: Retenu
+          accepted: Accepté
           all: Tout
           evaluating: Évaluer
           except_rejected: Toutes sauf les propositions non retenues
-          rejected: Non retenu
+          rejected: Rejeté
         filter_type_values:
           all: Tout
           amendments: Amendements
@@ -5363,8 +5363,8 @@ fr:
             error: 'Votre demande n''a pas pu être complétée, réessayez plus tard.'
             success: Votre demande de collaboration a été envoyée
           collaboration_requests:
-            accept_request: Retenir
-            reject_request: Ne pas retenir
+            accept_request: Accepté
+            reject_request: Rejeté
             title: Demandes de collaboration
           rejected_request:
             error: >-
@@ -5518,7 +5518,7 @@ fr:
         index:
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
           new_proposal: Nouvelle proposition
-          see_all_withdrawn: Voir toutes les propositions non retenues
+          see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -5606,7 +5606,7 @@ fr:
             description: 'Vous pouvez créer jusqu''à %{limit} propositions.'
           threshold_per_proposal:
             description: >-
-              Pour être retenues, les propositions doivent atteindre %{limit}
+              Pour être acceptées, les propositions doivent atteindre %{limit}
               votes
           title: 'Le vote est soumis aux règles suivantes :'
           vote_limit:
@@ -6243,8 +6243,8 @@ fr:
         {{organization}}</li><li>Last but not least, joignez d' autres
         personnes, partager avec eux l'expérience d'être engagés et participer à
         {{organization}}. Faites des propositions, des commentaires, des débats,
-        réfléchissez à la manière de contribuer aux biens communs, fournissez
-        des arguments pour convaincre, écoutez et lisez pour être convaincu,
+        réfléchissez à la manière de contribuer au bien commun, fournissez des
+        arguments pour convaincre, écoutez et lisez pour être convaincu,
         exprimez vos idées de manière concrète et directe, répondez avec
         patience et décision, défendez vos idées un esprit ouvert pour
         collaborer et rejoindre les idées des autres.</li></ul>
