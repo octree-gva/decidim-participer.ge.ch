@@ -1,4 +1,4 @@
-FROM git.octree.ch:4567/decidim/decidim-core:7f4e0d1e
+FROM git.octree.ch:4567/decidim/decidim-core:99e9c90c
 
 LABEL maintainer="hello@octree.ch"
 
