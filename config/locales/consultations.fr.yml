@@ -32,15 +32,19 @@ fr:
         scope: Périmètre d'application
         slug: Identifiant
         subtitle: Sous-titre
-        title: Titre
         vote: Système de vote externe
         what_is_decided: Objectifs
+        title: Titre
+      response:
+        decidim_consultations_response_group_id: Groupe
     errors:
       models:
         question:
           attributes:
             max_votes:
-              lower_than_min: Le nombre maximum de voix doit être supérieur ou égal au minimum.
+              lower_than_min: >-
+                Le nombre maximum de voix doit être supérieur ou égal au
+                minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Réponse introuvable.
@@ -67,33 +71,52 @@ fr:
   decidim:
     admin:
       actions:
+        back_to_responses: Retour aux résultats
         new_consultation: Nouvelle consultation
         new_question: Nouvelle question
         new_response: Nouvelle réponse
+        new_response_group: Nouveau groupe
         publish_results: Publier les résultats
+        response_groups: Gérer les groupes de réponses
         unpublish_results: Dépublier des résultats
       consultation_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette consultation.
+          error: >-
+            Une erreur s'est produite lors de la publication de cette
+            consultation.
           success: La consultation a été publiée avec succès.
         destroy:
           error: Il y a eu une erreur lors de la dépublication de cette consultation.
           success: La consultation a été dépubliée avec succès.
       consultation_results_publications:
         create:
-          error: Une erreur s'est produite lors de la publication des résultats de cette consultation.
+          error: >-
+            Une erreur s'est produite lors de la publication des résultats de
+            cette consultation.
           success: Les résultats de la consultation ont été publiés avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la dépublication des résultats de cette consultation.
+          error: >-
+            Une erreur s'est produite lors de la dépublication des résultats de
+            cette consultation.
           success: Les résultats de la consultation ont été dépubliés avec succès.
       consultations:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle consultation.
+          error: >-
+            Une erreur s'est produite lors de la création d'une nouvelle
+            consultation.
           success: La consultation a été créée avec succès.
+        deprecation_warning: >-
+          L'espace de consultation sera obsolète dans un avenir proche. Nous
+          travaillons sur la prochaine version sécurisée et cryptographique
+          appelée Votes.
         edit:
           update: Mettre à jour
         form:
-          slug_help: "Les identifiants d'URL sont utilisés pour générer les URL qui amènent à cette consultation. Ils n'acceptent que les lettres, les chiffres et les tirets et doivent commencer par une lettre. Exemple : %{url}"
+          slug_help: >-
+            Les identifiants d'URL sont utilisés pour générer les URL qui
+            amènent à cette consultation. Ils n'acceptent que les lettres, les
+            chiffres et les tirets et doivent commencer par une lettre. Exemple
+            : %{url}
           title: Informations générales
         index:
           not_published: Non publiée
@@ -103,10 +126,12 @@ fr:
           title: Nouvelle consultation
         results:
           not_visible: Les résultats seront disponibles lorsque la consultation sera close
-          participants: "%{count} participant·e·s"
-          total_votes: "Total : %{count} votes"
+          participants: '%{count} participant·e·s'
+          total_votes: 'Total : %{count} votes'
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette consultation.
+          error: >-
+            Une erreur s'est produite lors de la mise à jour de cette
+            consultation.
           success: Consultation mise à jour avec succès.
       menu:
         consultations: Consultations
@@ -140,13 +165,21 @@ fr:
         response:
           fields:
             created_at: Créée le
+            response_group: Groupe
             title: Titre
           name:
             one: Réponse
             other: Réponses
       question_configuration:
-        disable_external_voting: Veuillez désactiver la consultation externe pour les configurations avancées
+        disable_external_voting: >-
+          Veuillez désactiver la consultation externe pour les configurations
+          avancées
         form:
+          help: >-
+            Configurez plusieurs choix de questions en augmentant le nombre
+            maximum de réponses qu'un participant peut sélectionner. La valeur
+            maximale par défaut est 1, ce qui signifie qu'une seule réponse peut
+            être sélectionnée.
           title: Configuration avancée
       question_publications:
         create:
@@ -157,7 +190,9 @@ fr:
           success: Question dépubliée avec succès.
       questions:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle question.
+          error: >-
+            Une erreur s'est produite lors de la création d'une nouvelle
+            question.
           success: Question créée avec succès.
         destroy:
           success: Question supprimée avec succès.
@@ -174,9 +209,35 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette question.
           success: Question mise à jour avec succès.
+      response_groups:
+        create:
+          error: >-
+            Une erreur s'est produite lors de la création d'un nouveau groupe de
+            réponses.
+          success: Le groupe de réponses a été créé avec succès.
+        destroy:
+          error: >-
+            Il y a eu un problème lors de la suppression du groupe de réponse.
+            Vérifiez qu'aucune réponse ne dépend d'elle.
+          success: Le groupe de réponses a bien été supprimé.
+        edit:
+          update: Mettre à jour
+        form:
+          title: Informations générales
+        help: >-
+          Utiliser des groupes pour organiser des questions à choix multiples
+          dans des blocs.
+        new:
+          create: Créer
+          title: Nouveau groupe de réponse
+        update:
+          error: Il y a eu un problème lors de la mise à jour de cette réponse.
+          success: Réponse mise à jour avec succès.
       responses:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle réponse.
+          error: >-
+            Une erreur s'est produite lors de la création d'une nouvelle
+            réponse.
           success: Réponse créée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la suppression de la réponse.
@@ -194,6 +255,7 @@ fr:
       titles:
         consultations: Consultations
         questions: Questions
+        response_groups: Groupes de réponses
         responses: Réponses
         results: Résultats
     consultations:
@@ -208,16 +270,18 @@ fr:
         view_results: Voir les résultats
       consultations:
         orders:
-          label: "Trier les consultations par :"
+          label: 'Trier les consultations par :'
           random: Aléatoire
           recent: Les plus récentes
+        show:
+          dates: Dates
       content_blocks:
         highlighted_consultations:
           name: Consultations mises en avant
       count:
         title:
-          one: "%{count} consultation"
-          other: "%{count} consultations"
+          one: '%{count} consultation'
+          other: '%{count} consultations'
       filters:
         active: Actives
         all: Tout
@@ -236,7 +300,7 @@ fr:
         title: Consultations
       last_activity:
         new_consultation: Nouvelle consultation
-        new_question_at_html: "<span>Nouvelle question à %{link}</span>"
+        new_question_at_html: <span>Nouvelle question à %{link}</span>
       pages:
         home:
           highlighted_consultations:
@@ -255,15 +319,19 @@ fr:
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
-            description: Les participants pourraient distribuer un minimum de %{votes} votes parmi différentes options.
+            description: >-
+              Les participants pourraient distribuer un minimum de %{votes}
+              votes parmi différentes options.
           title: Dans cette question plusieurs choix sont permis
           total_participants: Un total de %{count} personnes ont participé au vote.
           vote_limit:
             description: Les participants peuvent voter jusqu'à %{limit} options.
         voting_rules:
           minimum_votes_per_user:
-            description: Vous devez répartir un minimum de %{votes} voix entre différentes questions.
-          title: "Les votes sont soumis aux règles suivantes :"
+            description: >-
+              Vous devez répartir un minimum de %{votes} voix entre différentes
+              questions.
+          title: 'Les votes sont soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter jusqu'à %{limit} options.
             left: Restant
@@ -271,7 +339,9 @@ fr:
       question_votes:
         create:
           error: Il y a eu des erreurs lors du vote sur la question
-          success: Vous pouvez le modifier jusqu'à la fin de la consultation. Seul le dernier vote sera accepté.
+          success: >-
+            Vous pouvez le modifier jusqu'à la fin de la consultation. Seul le
+            dernier vote sera accepté.
           title_error: Erreur de vote !
           title_success: Vote enregistré avec succès
       regular_questions:
@@ -291,8 +361,34 @@ fr:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p> Les <strong>Consultations</strong> sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>\n"
-          page: "<p> Les <strong>Consultations</strong> sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats dans l'organisation.</p>\n"
+          contextual: >
+            <p> Les <strong>Consultations</strong> sont un espace qui vous
+            permet de poser une question claire à toutes les personnes qui
+            forment une organisation, de lancer un appel à participer à la
+            consultation, de susciter et d’organiser le débat pour ou contre une
+            réponse. Lorsque la date de consultation arrive, vous pouvez voter
+            et publier les résultats des votes.</p> <p>Exemples: Les
+            consultations peuvent porter sur presque tous les aspects touchant
+            une organisation: certains exemples changent le nom ou le logo de
+            l’organisation offrant plusieurs alternatives, décidant par oui ou
+            non de faire partie d’une organisation plus grande, validant ou
+            rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de
+            travail, ou de définir si les postes doivent rester au maximum d’un,
+            deux ou trois mandats.</p>
+          page: >
+            <p> Les <strong>Consultations</strong> sont un espace qui vous
+            permet de poser une question claire à toutes les personnes qui
+            forment une organisation, de lancer un appel à participer à la
+            consultation, de susciter et d’organiser le débat pour ou contre une
+            réponse. Lorsque la date de consultation arrive, vous pouvez voter
+            et publier les résultats des votes.</p> <p>Exemples: Les
+            consultations peuvent porter sur presque tous les aspects touchant
+            une organisation: certains exemples changent le nom ou le logo de
+            l’organisation offrant plusieurs alternatives, décidant par oui ou
+            non de faire partie d’une organisation plus grande, validant ou
+            rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de
+            travail, ou de définir si les postes doivent rester au maximum d’un,
+            deux ou trois mandats dans l'organisation.</p>
           title: Que sont les consultations?
     menu:
       consultations: Consultations
@@ -321,13 +417,15 @@ fr:
         verification_required: Vérifier votre compte pour voter
         vote: Voter
       vote_modal:
+        close_modal: Fermer la fenêtre de dialogue
         contextual_help: Veuillez sélectionner une option.
-        title: "Consultation : soutien aux questions"
+        title: 'Consultation : soutien aux questions'
       vote_modal_confirm:
         change: Modifier
+        close_modal: Fermer la fenêtre de dialogue
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
-        title: "Consultation : confirmer le soutien"
+        title: 'Consultation : confirmer le soutien'
     resources:
       consultations:
         actions:
