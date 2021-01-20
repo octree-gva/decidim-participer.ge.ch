@@ -37,3 +37,4 @@ nfs/
 # Ignore Dotenv files
 .env*
 !.env.tmpl
+.DS_Store
