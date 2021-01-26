@@ -8,12 +8,12 @@ gem "decidim", path: ".."
 gem "decidim-consultations", path: ".."
 gem "decidim-verifications", path: ".."
 
-gem "bootsnap", "~> 1.3"
 
-gem "puma", "~> 3.0"
-gem "uglifier", "~> 4.1"
+gem 'bootsnap', '~> 1.5', '>= 1.5.1'
 
-gem "faker", "~> 1.9"
+gem 'puma', '~> 5.1', '>= 5.1.1'
+gem 'uglifier', '~> 4.2'
+gem 'faker', '~> 2.15', '>= 2.15.1'
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri

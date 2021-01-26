@@ -1,4 +1,4 @@
-FROM git.octree.ch:4567/decidim/decidim-core:64fc1d78
+FROM git.octree.ch:4567/decidim/decidim-core:d4fd0d19
 
 LABEL maintainer="hello@octree.ch"
 
@@ -9,7 +9,7 @@ ENV TZ=Europe/Zurich
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
-COPY . .
+ADD . .
 RUN bundle install
 # Install Yarn
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
