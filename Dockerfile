@@ -8,10 +8,8 @@ ENV SECRET_KEY_BASE=no_need_for_such_secrecy
 ENV TZ=Europe/Zurich
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install
 ADD . .
-RUN bundle install
-# Install Yarn
+RUN bundle install --deployment
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 VOLUME /code/storage
