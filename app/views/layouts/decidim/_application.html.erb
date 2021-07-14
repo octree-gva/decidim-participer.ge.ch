@@ -14,18 +14,18 @@
 <html lang="<%= I18n.locale %>" class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
-    <%= preload_link_tag("/fonts/Inter-Light.woff2") %>
-    <%= preload_link_tag("/fonts/Inter-SemiBold.woff2") %>
-    <%= preload_link_tag("/fonts/Inter-Regular.woff2") %>
-    <%= preload_link_tag("/fonts/Inter-Light.woff") %>
-    <%= preload_link_tag("/fonts/Inter-SemiBold.woff") %>
-    <%= preload_link_tag("/fonts/Inter-Regular.woff") %>
-    <%= preload_link_tag("/fonts/Inter-Light.woff2") %>
-    <%= preload_link_tag("/fonts/Inter-SemiBold.woff2") %>
-    <%= preload_link_tag("/fonts/Inter-Regular.woff2") %>
     
-    <%= render partial: "layouts/decidim/head" %>
+    <%= preload_link_tag("/fonts/Inter-Bold.woff2") %>
+    <%= preload_link_tag("/fonts/Inter-Regular.woff2") %>
+    <%= preload_link_tag("/fonts/Inter-SemiBold.woff2") %>
+    <%= preload_link_tag("/fonts/Inter-Bold.woff") %>
+    <%= preload_link_tag("/fonts/Inter-Regular.woff") %>
+    <%= preload_link_tag("/fonts/Inter-SemiBold.woff") %>
+    <%= preload_link_tag("/fonts/Inter-Bold.ttf") %>
+    <%= preload_link_tag("/fonts/Inter-Regular.ttf") %>
+    <%= preload_link_tag("/fonts/Inter-SemiBold.ttf") %>
 
+    <%= render partial: "layouts/decidim/head" %>
   </head>
 
   <body class="<%= @current_organization.present? ? "t-#{@current_organization.id} t-#{@current_organization.reference_prefix}" : ""%>">
