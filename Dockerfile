@@ -11,8 +11,9 @@ ADD . .
 RUN bundle install
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
-VOLUME /code/storage\
+VOLUME /code/storage
 VOLUME /code/log
+VOLUME /code/app/assets/stylesheets/organizations
 
 ENTRYPOINT []
 CMD bin/start
