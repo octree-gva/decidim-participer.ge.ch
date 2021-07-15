@@ -4,9 +4,9 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", path: ".."
-gem "decidim-consultations", path: ".."
-gem "decidim-verifications", path: ".."
+gem "decidim", path: "../decidim-core-ocsin"
+gem "decidim-consultations", path: "../decidim-core-ocsin"
+gem "decidim-verifications", path: "../decidim-core-ocsin"
 
 
 gem 'bootsnap', '~> 1.5', '>= 1.5.1'
@@ -17,7 +17,7 @@ gem 'faker', '~> 2.15', '>= 2.15.1'
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
-  gem "decidim-dev", path: ".."
+  gem "decidim-dev", path: "../decidim-core-ocsin"
 end
 
 group :development do
