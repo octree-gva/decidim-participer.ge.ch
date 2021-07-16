@@ -1,4 +1,4 @@
-FROM git.octree.ch:4567/decidim/decidim-core:d67b2d92
+FROM git.octree.ch:4567/decidim/decidim-core:e0e03380 
 LABEL maintainer="hello@octree.ch"
 
 ENV RAILS_ENV=production
