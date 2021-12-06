@@ -42,7 +42,7 @@ ARG GROUP_UID=1000
 ########################################################################
 # Dependancy layer
 ########################################################################
-FROM ruby:${ALPINE_RUBY_VERSION}-alpine  AS dependancy
+FROM ruby:${ALPINE_RUBY_VERSION}-alpine
 ARG BUNDLER_VERSION
 ARG NODE_VERSION
 ARG USER
@@ -105,71 +105,3 @@ RUN bundle config set without 'development test' && \
 
 # Add code
 COPY . ./
-
-########################################################################
-# Final layer
-########################################################################
-FROM ruby:${ALPINE_RUBY_VERSION}-alpine
-LABEL maintainer="hello@octree.ch"
-ARG ALPINE_RUBY_VERSION
-ARG BUNDLER_VERSION
-ARG USER
-ARG USER_UID
-ARG GROUP
-ARG GROUP_UID
-
-ENV USER=$USER \
-    USER_UID=$USER_UID \
-    GROUP=$GROUP\
-    GROUP_UID=$GROUP_UID \
-    RAILS_ENV=production \
-    RACK_ENV=production \
-    TZ=Europe/Zurich \
-    LANG=C.UTF-8 \
-    RAILS_SERVE_STATIC_FILES=false \
-    BUNDLER_VERSION=$BUNDLER_VERSION \
-    RAILS_ROOT=/home/$USER/app
-
-ENV PATH=$PATH:$RAILS_ROOT/bin
-
-WORKDIR $RAILS_ROOT
-
-RUN apk update && \
-    apk upgrade && \
-    gem update --system && \
-    gem install bundler --version "$BUNDLER_VERSION" && \
-    apk add --no-cache \
-        postgresql-dev \
-        tzdata \
-        imagemagick \
-        bash \
-        vim \
-        && rm -rf /var/cache/apk/*
-
-# Create system user to run as non-root.
-RUN addgroup -S $GROUP -g $GROUP_UID && \
-    adduser -S -g '' -u $USER_UID -G $GROUP $USER
-
-VOLUME /home/$USER/app/storage
-VOLUME /home/$USER/app/public
-VOLUME /home/$USER/app/log
-
-# Copy app & gems
-COPY --from=dependancy /usr/local/bundle/ /usr/local/bundle/
-COPY --chown=$USER:$GROUP --from=dependancy /home/$USER/app ./
-
-# Add imagemagick policy
-RUN mv $RAILS_ROOT/.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml && \
-    # Set bundle config again, to have passing bundle check
-    bundle config set without 'development test'
-
-# Switch to non-root system user
-USER $USER
-
-
-# Define bash as the default shell
-SHELL ["/bin/bash", "-l", "-c"]
-
-ENTRYPOINT [".docker/entrypoint.sh"]
-
-CMD ["bundle", "exec", "rails", "server"]

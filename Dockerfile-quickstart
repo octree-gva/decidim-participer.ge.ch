@@ -7,7 +7,7 @@ ARG USER_UID=1000
 ARG GROUP=admin
 ARG GROUP_UID=1000
 
-FROM git.octree.ch:4567/decidim/ocsin:build-base-89877b2d AS assets
+FROM git.octree.ch:4567/decidim/ocsin:build-base-fd28914b AS assets
 ARG BUNDLER_VERSION
 ARG NODE_VERSION
 ARG USER
@@ -31,7 +31,7 @@ COPY . ./
 RUN source $NVM_DIR/nvm.sh; nvm use $NODE_VERSION && \
     SECRET_KEY_BASE=assets bundle exec rails assets:precompile
 
-FROM git.octree.ch:4567/decidim/ocsin:alpine-89877b2d
+FROM git.octree.ch:4567/decidim/ocsin:alpine-fd28914b
 
 COPY --chown=$USER:$GROUP --from=assets /home/$USER/app ./
 
