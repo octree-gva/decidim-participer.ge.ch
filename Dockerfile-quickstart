@@ -7,7 +7,7 @@ ARG USER_UID=1000
 ARG GROUP=admin
 ARG GROUP_UID=1000
 
-FROM git.octree.ch:4567/decidim/ocsin:build-base-fd28914b AS assets
+FROM git.octree.ch:4567/decidim/ocsin:build-base-3f56ed39 AS assets
 ARG BUNDLER_VERSION
 ARG NODE_VERSION
 ARG USER
@@ -26,14 +26,10 @@ ENV PATH=$PATH:$NVM_DIR
 
 # Add overrides to basic existing app
 COPY . ./
-
-# Pre-compile assets
 RUN source $NVM_DIR/nvm.sh; nvm use $NODE_VERSION && \
     SECRET_KEY_BASE=assets bundle exec rails assets:precompile
 
-FROM git.octree.ch:4567/decidim/ocsin:alpine-fd28914b
-
+FROM git.octree.ch:4567/decidim/ocsin:alpine-3f56ed39
 COPY --chown=$USER:$GROUP --from=assets /home/$USER/app ./
-
 # Run bootsnap caching to load fast rails app
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
