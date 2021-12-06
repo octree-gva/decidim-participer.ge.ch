@@ -2,34 +2,41 @@ version: "3"
 services:
   app:
     image: decidim
-    build:
-      context: .
+    build: .
     volumes:
-      - .:/code
-      - node_modules:/app/node_modules
+      - .:/home/decidim/app
     environment:
-      - PORT=3000
-      - DATABASE_HOST=pg
-      - DATABASE_USERNAME=postgres
-      - DATABASE_PASSWORD=p28ZRFZeitqovv9Puvse
-      - RAILS_ENV=development
+      - RAILS_PORT=3000
+      - DB_HOST=pg
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=p28ZRFZeitqovv9Puvse
+      - DB_DATABASE=decidim_quickstart
+      - RAILS_ENV=production
+      - RAILS_FORCE_SSL=false
       - SECRET_KEY_BASE=J9jEZgGFudNB4kEeqYHwoht4IQvinBhf
       - FROM_MAILER_ADDRESS=me@domain.org
       - APPLICATION_NAME=My application name
       - LOG_LEVEL=debug
     ports:
       - 3000:3000
-    links:
+    depends_on:
       - pg
+      - mailer
 
   pg:
-    image: postgres
+    image: postgres:11
     volumes:
       - pg-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=p28ZRFZeitqovv9Puvse
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=decidim_app_development
+      - POSTGRES_DB=decidim_quickstart
+
+  mailer:  
+    image: tophfr/mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:80"
 
 volumes:
   node_modules: {}

@@ -3,11 +3,12 @@
 Decidim.configure do |config|
   config.application_name = ENV["APPLICATION_NAME"]
   config.mailer_sender = ENV["FROM_MAILER_ADDRESS"]
-
+  config.force_ssl = ["1", "true", "enabled"].include?(ENV.fetch("RAILS_FORCE_SSL", "true"))
   # Change these lines to set your preferred locales
   config.default_locale = :fr
   config.available_locales = [:en, :fr]
   config.image_uploader_quality = 100
+  
   # Geocoder configuration
   # config.geocoder = {
   #   static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",

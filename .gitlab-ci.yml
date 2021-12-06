@@ -6,8 +6,8 @@ include:
 stages:
   - build
 
-# Construction d'une image Docker
-Build:
+# Construction d'une image Docker pour les builds OCSIN
+Build Dev:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:debug
@@ -17,4 +17,17 @@ Build:
     - if: "$CI_COMMIT_TAG =~ /v.*$/"
   script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA}
+    - /kaniko/executor --context $CI_PROJECT_DIR --target dependancy --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:build-base-${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA}
+
+# Construction d'une image Docker pour l'image finale d'OCSIN
+Build Alpine:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master"'
+    - if: "$CI_COMMIT_TAG =~ /v.*$/"
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:alpine-${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA}

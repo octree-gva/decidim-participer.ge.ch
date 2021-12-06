@@ -36,15 +36,12 @@ This app uses an Octree version of Decidim, where we do as few changes as possib
 - Puma is optimized and uses a custom SSL certificate, served by the OCSIN
 
 
-
 <br /><br />
 <h4 align="center">
     <br /><br />
     <img src="https://github.com/octree-gva/meta/blob/main/decidim/static/participerge/mobile_participer_ge.png?raw=true" /><br /><br />
     <img src="https://github.com/octree-gva/meta/blob/main/decidim/static/participerge/desktop_participer_ge.png?raw=true" /><br /><br />
 </h4>
-
-
 
 <h4 align="center">
     <img src="https://raw.githubusercontent.com/octree-gva/meta/main/decidim/static/decidim_avatar.svg" width="124" />

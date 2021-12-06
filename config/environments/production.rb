@@ -1,3 +1,4 @@
+require "#{Rails.root}/lib/decidim/logger_proxy"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -47,8 +48,8 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
-
+  config.force_ssl = ["1", "true", "enabled"].include?(ENV.fetch("RAILS_FORCE_SSL", "true"))
+  puts "FORCE_SSL enabled" if config.force_ssl
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   # config.log_level = :debug
@@ -76,8 +77,7 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new()
+
 
   config.action_mailer.smtp_settings = {
     :address        => Rails.application.secrets.smtp_address,
@@ -93,17 +93,21 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new()
+  config.logger = Decidim::LoggerProxy.new
 
-  # Set log filename
-  file = "#{Rails.root}/log/#{ENV['LOG_FILENAME'] || 'production.log'}"
-  logger = ActiveSupport::Logger.new("#{file}", 'daily')
-  logger.formatter = config.log_formatter
-  config.logger    = ActiveSupport::TaggedLogging.new(logger)
-
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+  if ["1", "true", "enabled"].include?(ENV.fetch("RAILS_LOG_DAILY", "false"))
+    file = "#{Rails.root}/log/#{ENV.fetch('RAILS_LOG_DAILY_FILENAME', 'production.log')}"
+    logger = ActiveSupport::Logger.new("#{file}", 'daily')
     logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger.add(ActiveSupport::TaggedLogging.new(logger))
+  end
+
+  if ["1", "true", "enabled"].include?(ENV.fetch("RAILS_LOG_TO_STDOUT", "true"))
+    logger = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger.add(ActiveSupport::TaggedLogging.new(logger))
   end
 
   # Do not dump schema after migrations.
