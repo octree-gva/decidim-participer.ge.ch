@@ -1,0 +1,37 @@
+ARG ALPINE_RUBY_VERSION=2.7.3
+ARG BUNDLER_VERSION=2.2.22
+# Should exists for alpine, see https://unofficial-builds.nodejs.org/download/release/
+ARG NODE_VERSION=v16.13.0 
+ARG USER=decidim
+ARG USER_UID=1000
+ARG GROUP=admin
+ARG GROUP_UID=1000
+
+FROM git.octree.ch:4567/decidim/ocsin:build-base-89877b2d AS assets
+ARG BUNDLER_VERSION
+ARG NODE_VERSION
+ARG USER
+ENV USER=$USER 
+
+ENV BUNDLER_VERSION=$BUNDLER_VERSION \
+    NODE_VERSION=$NODE_VERSION \
+    RAILS_ROOT=/home/$USER/app \ 
+    NVM_DIR=/usr/local/nvm \
+    NVM_NODEJS_ORG_MIRROR=https://unofficial-builds.nodejs.org/download/release \
+    NVM_ARCH=x64-musl  \
+    RAILS_ENV=production \
+    RACK_ENV=production
+
+ENV PATH=$PATH:$NVM_DIR
+
+COPY . ./
+# Pre-compile assets
+RUN source $NVM_DIR/nvm.sh; nvm use $NODE_VERSION && \
+    SECRET_KEY_BASE=assets bundle exec rails assets:precompile
+
+FROM git.octree.ch:4567/decidim/ocsin:alpine-89877b2d
+
+COPY --chown=$USER:$GROUP --from=assets /home/$USER/app ./
+
+# Run bootsnap caching to load fast rails app
+RUN bundle exec bootsnap precompile --gemfile app/ lib/

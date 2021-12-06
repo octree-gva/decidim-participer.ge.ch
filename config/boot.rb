@@ -10,7 +10,7 @@ Bootsnap.setup(
   development_mode: env == "development",
   load_path_cache: true,
   autoload_paths_cache: true,
-  disable_trace: false,
-  compile_cache_iseq: !ENV["SIMPLECOV"],
+  compile_cache_iseq: ["1", "true", "enabled"].include?(ENV.fetch("SIMPLECOV", "false")),
   compile_cache_yaml: true
 )
+ 

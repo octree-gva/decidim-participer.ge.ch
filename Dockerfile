@@ -103,12 +103,6 @@ RUN bundle config set without 'development test' && \
     bundle install && \
     rm -rf /usr/local/bundle/cache/ /usr/local/bundle/bundler/gems/*/.git
 
-COPY . ./
-
-# Pre-compile assets
-RUN source $NVM_DIR/nvm.sh; nvm use $NODE_VERSION && \
-    SECRET_KEY_BASE=assets bundle exec rails assets:precompile
-    
 ########################################################################
 # Final layer
 ########################################################################
@@ -159,7 +153,6 @@ VOLUME /home/$USER/app/log
 
 # Copy app & gems
 COPY --from=dependancy /usr/local/bundle/ /usr/local/bundle/
-COPY --chown=$USER:$GROUP --from=dependancy /home/$USER/app ./
 
 # Add imagemagick policy
 RUN mv $RAILS_ROOT/.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml && \
@@ -168,9 +161,6 @@ RUN mv $RAILS_ROOT/.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml 
 
 # Switch to non-root system user
 USER $USER
-
-# Run bootsnap caching to load fast rails app
-RUN bundle exec bootsnap precompile --gemfile app/ lib/
 
 # Define bash as the default shell
 SHELL ["/bin/bash", "-l", "-c"]
