@@ -24,7 +24,9 @@ ENV BUNDLER_VERSION=$BUNDLER_VERSION \
 
 ENV PATH=$PATH:$NVM_DIR
 
+# Add overrides to basic existing app
 COPY . ./
+
 # Pre-compile assets
 RUN source $NVM_DIR/nvm.sh; nvm use $NODE_VERSION && \
     SECRET_KEY_BASE=assets bundle exec rails assets:precompile
