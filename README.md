@@ -31,7 +31,7 @@ A docker image is used for deployment, the docker image is ready for production,
 This app uses an Octree version of Decidim, where we do as few changes as possible to stay near the main branch. The updates concern mainly theming and exploitation:
 
 - The main body class has a class for each organization. This allows having multi-tenant instances with different custom themes
-- The theme is customized to overload the Foundation for Sites library
+- [The theme](https://github.com/octree-gva/decidim-participer.ge.ch-theme) is customized to overload the Foundation for Sites library
 - Logs of the system are done on a daily matter, to isolate issues faster
 - Puma is optimized and uses a custom SSL certificate, served by the OCSIN
 
