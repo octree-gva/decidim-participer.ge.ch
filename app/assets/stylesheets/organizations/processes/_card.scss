@@ -1,0 +1,6 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .card--process .card__link .card__title {
+    color: black;
+}
+}

@@ -1,0 +1,22 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .process-nav {
+    .process-nav__link {
+        font-weight: 600;
+    }
+    .process-nav__more i {
+        background-color: white;
+    }
+    .dropdown-pane .process-nav__more i {
+        background-color: var(--primary-dark-10);
+    }
+    @media screen and (max-width: 39.99875em) {
+        .process-nav__trigger {
+            display: none !important;
+        }
+        .process-nav__content {
+            display: block !important;
+        }
+    }
+}
+}

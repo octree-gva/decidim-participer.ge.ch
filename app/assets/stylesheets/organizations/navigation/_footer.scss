@@ -1,0 +1,39 @@
+ 
+ @import 'organizations/settings';
+body.#{$theme} {
+    .mini-footer {
+        @media screen and (max-width: 39.99875em) {
+            text-align: center;
+        }
+    }
+    .main-footer,
+    .mini-footer {
+        background: var(--grey-light);
+        color: #3d393c;
+        .cc-badge {
+            color: #3d393c;
+        }
+        .decidim-logo {
+            @media screen and (max-width: 39.99875em) {
+                margin-top: 32px;
+                margin-bottom: 32px;
+            }
+            img {
+                filter: brightness(0.3);
+            }
+        }
+        a {
+            color: var(--primary-dark);
+            cursor: pointer;
+            text-decoration: underline;
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+                color: var(--primary-dark);
+                opacity: 0.8;
+                text-decoration: none;
+            }
+        }
+    }
+
+}

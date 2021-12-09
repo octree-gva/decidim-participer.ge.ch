@@ -1,0 +1,24 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border-top-color: black;
+}
+@media only screen and (max-width: 639px) {
+     .responsive-tab-block > ul.tabs > li.is-active::before {
+        border-top-color: black;
+    }
+}
+ #profile-tabs.tabs .tabs-title a {
+    color: var(--primary-dark-10);
+    font-weight: 600;
+}
+    .wrapper ul.dropdown.menu{
+        background-color: white;
+        padding: 0.250rem;
+        font-size: 0.9rem;
+        border-radius: 4px;
+        li.is-active>a {
+            color: var(--primary-dark-10);
+        }
+    }
+}

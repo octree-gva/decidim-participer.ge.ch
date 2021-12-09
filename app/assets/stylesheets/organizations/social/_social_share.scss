@@ -1,0 +1,11 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .social-share-button {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+    #socialShare {
+        padding-bottom: 24px;
+    }
+}

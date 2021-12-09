@@ -1,0 +1,21 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .callout {
+    color: black;
+    &.alert {
+        background: var(-callout-alert);
+    }
+    &.secondary {
+        background: var(-callout-secondary);
+    }
+    &.alert {
+        background: var(-callout-alert);
+    }
+    &.warning {
+        background: var(-callout-warning);
+    }
+    &.primary {
+        background: var(-callout-primary);
+    }
+}
+}

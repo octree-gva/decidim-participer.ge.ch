@@ -1,0 +1,11 @@
+@import 'organizations/settings';
+body.#{$theme} {
+    .floating-helper__icon-big {
+        color: var(--secondary-dark-60);
+        background-color: var(--secondary-light-10);
+    }
+    .floating-helper__text {
+        color: black;
+    }
+
+}

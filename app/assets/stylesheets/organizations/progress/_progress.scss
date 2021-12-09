@@ -1,0 +1,16 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .progress__bar{
+    .progress__bar__bar{
+        height: 16px;
+        border-radius: 0;
+         .progress__bar__bar--incomplete {
+             background: #cacaca;
+             margin-left: 0;
+        }
+        .progress__bar__bar--complete{
+            background: var(--success);
+        }
+         
+    }
+} }

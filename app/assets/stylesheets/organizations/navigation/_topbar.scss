@@ -1,0 +1,96 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ [type='search'] {
+    box-shadow: unset;
+    border-color: var(--grey-light);
+}
+
+ .topbar__search,
+ #search-count .columns:last-child .input-group {
+    border-radius: 4px;
+    border: 1px solid var(--grey-light);
+    @include breakpoint(small only) {
+        display: none;
+    }
+    &,
+    & input {
+        color: black;
+    }
+    &:not(:focus-within) button {
+        color: white;
+    }
+
+    & input::placeholder {
+        color: var(--grey);
+    }
+    @include breakpoint(medium) {
+        &,
+        & input {
+            background-color: white;
+        }
+
+        &:not(:focus-within) button {
+            background-color: var(--primary);
+        }
+    }
+    button {
+        padding: 5px 10px;
+        border-radius: 0 4px 4px 0;
+        color: white;
+    }
+    input {
+        background-color: white;
+    }
+}
+ .title-bar {
+    border-top-color: #e8e8e8;
+    background-color: #fafafa;
+    color: black;
+
+    .topbar__dropmenu > ul > li > a {
+        color: black;
+    }
+
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+        border-top-color: black !important;
+    }
+    .topbar__notifications .icon,
+    .topbar__conversations .icon {
+        fill: black;
+        opacity: 0.6;
+    }
+
+    .topbar__dropmenu .is-dropdown-submenu li:hover,
+    .topbar__dropmenu .is-dropdown-submenu li:focus {
+        text-decoration: none;
+        background: var(--hover-grey);
+        .topbar__notifications__item strong {
+            color: var(--primary-dark);
+        }
+    }
+
+    .topbar__user__login a {
+        color: var(--primary-dark-10);
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    .topbar__notifications__item strong,
+    .dropdown.menu > li.is-active > a,
+    .topbar__dropmenu .is-dropdown-submenu li a,
+    .topbar__notifications__item--more,
+    .topbar__user__login a {
+        color: var(--primary-dark-10);
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+ .topbar__search .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+}

@@ -1,0 +1,19 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .wrapper-home {
+    .card__link > .card__title,
+    .card__link.card__title {
+        color: black;
+    }
+    .card__link:hover > .card__title,
+    .card__link.card__title:hover {
+        color: black;
+        opacity: 1;
+    }
+    .card--process__small,
+    .card__link:hover > .card--process__small {
+        color: #3d393c;
+        opacity: 1;
+    }
+}
+}

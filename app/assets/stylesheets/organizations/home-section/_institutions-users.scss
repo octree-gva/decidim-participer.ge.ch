@@ -1,0 +1,22 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .institutions-users {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+
+    & > img {
+        max-height: 130px;
+        flex: 0;
+    }
+
+    @include breakpoint(medium) { 
+        justify-content: center;
+        & > img {
+            margin: 8px;
+        }
+    }
+}
+}

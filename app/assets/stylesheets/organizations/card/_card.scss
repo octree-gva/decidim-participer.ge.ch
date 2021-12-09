@@ -1,0 +1,61 @@
+@import 'organizations/settings';
+body.#{$theme} {
+$card-padding-horizontal: 24px;
+$card-padding-vertical: 32px;
+    
+ .card {
+     .card--list__icon {
+        fill: var(--primary-dark-10);
+     }
+    .card__content {
+        padding: $card-padding-vertical $card-padding-horizontal;
+        .actions {
+            margin-top: 32px;
+        }
+        &:not(:only-child) {
+            padding-bottom: $card-padding-vertical;
+        }
+
+        @include breakpoint(medium) {
+            padding: $card-padding-vertical $card-padding-horizontal;
+
+            &:not(:only-child) {
+                padding-bottom: $card-padding-vertical;
+            }
+        }
+    }
+    .card__support{
+        gap: 16px;
+    }
+    a:not(.button) {
+        color: var(--primary-dark-10);
+        &:hover {
+            text-decoration: none;
+            .card__title {
+                opacity: 0.94;
+            }
+        }
+        .card__title,
+        .card__title:hover {
+            color: black;
+            text-decoration: none;
+        }
+    }
+    .card--process__small {
+        opacity: 0.8;
+    }
+    .card__header,
+    .card__text {
+        margin-bottom: $card-padding-vertical / 2;
+    }
+
+    button.card__button.secondary  {
+        color: var(--primary);
+        &:hover,
+        &:focus  {
+            color: var(--primary);
+            opacity: 0.86;
+        }
+    }
+}
+}

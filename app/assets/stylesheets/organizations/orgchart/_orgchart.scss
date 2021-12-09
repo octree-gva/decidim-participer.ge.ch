@@ -1,0 +1,19 @@
+@import 'organizations/settings';
+body.#{$theme} {
+    .orgchart {
+        .as-text {
+            fill: var(--primary-dark-10);
+        }
+        .as-card{
+            stroke-width: 1px;
+        }
+        .js-reset-orgchart {
+            min-width: 130px;
+        }
+
+
+        g.node:hover {
+            opacity: 0.87;
+        }
+    }
+}

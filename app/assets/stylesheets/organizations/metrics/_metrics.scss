@@ -1,0 +1,26 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ #metrics.section {
+    .pull-right {
+        float: none;
+    }
+    .mt-s {
+        margin-top: 0px !important;
+        margin-bottom: 2px !important;
+    }
+    .metric-description {
+        margin-bottom: 8px;
+    }
+    .metric-title {
+        margin-top: 16px;
+    }
+    .medium-4 {
+        margin: 0;
+        width: 100%;
+        @media print, screen and (min-width: 40em) {
+            margin: 0;
+            width: 100%;
+        }
+    }
+}
+}

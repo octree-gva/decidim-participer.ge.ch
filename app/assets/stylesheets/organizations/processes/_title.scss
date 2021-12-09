@@ -1,0 +1,15 @@
+@import 'organizations/settings';
+body.#{$theme} {
+    .title-action {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: space-between;
+        .title-action__title {
+            flex:3;
+        }
+        .title-action__action.ml-s {
+            margin-left: 0 !important;
+            flex:1;
+        }
+    }
+}

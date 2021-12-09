@@ -1,0 +1,21 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .wrapper-home {
+    .card__text {
+        span.column.medium-4,
+        time.column.medium-4,
+        span.column.medium-8 {
+            width: auto !important;
+            flex: 1;
+            float: none;
+            margin-right: 0.23rem;
+        }
+
+        span.column.medium-8 {
+            top: -1px;
+            display: inline-block;
+            position: relative;
+        }
+    }
+}
+}

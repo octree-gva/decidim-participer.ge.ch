@@ -1,0 +1,22 @@
+@import 'organizations/settings';
+body.#{$theme} {
+    .attachments {
+        .card--list__text .text-small {
+            &, &:hover{
+                color: black;
+            }
+        }
+
+        @include breakpoint(small only) {
+            .card--list__item{
+                flex-wrap: wrap;
+                gap: 32px;
+            }
+            .card--list__data {
+                flex: 1;
+                margin-bottom: 16px;
+                margin-right: 16px;
+            }
+        }
+    }
+}

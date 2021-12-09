@@ -1,0 +1,49 @@
+@import 'organizations/settings';
+body.#{$theme} {
+/**
+ * Override css vars for decidim foundation theme
+ * 
+ * Add darker/lighter modifier to primary and secondary color, to be able to add more
+ * contrast when needed. Palette is defined there: https://material.io/resources/color/#!/?view.left=1&view.right=1&primary.color=58B78D&secondary.color=FCE800
+ **/
+
+& {
+    --grey: #cacaca;
+    --hover-grey: #f6f6f6;
+    --grey-light: #f6f6f6;
+    $variants: 10, 20, 30, 40, 50, 60, 70, 80, 90;
+    @each $klass, $color in $material-palette {
+        --#{$klass}: #{$color};
+        --#{$klass}-rgb: #{red($color), green($color), blue($color)};
+        --#{$klass}-light: #{scale-color(
+                get-mui-color($klass),
+                $lightness: 30%
+            )};
+        --#{$klass}-dark: #{scale-color(
+                get-mui-color($klass),
+                $lightness: -50%
+            )};
+        @each $light in $variants {
+            --#{$klass}-dark-#{$light}: #{scale-color(
+                    get-mui-color($klass),
+                    $lightness: -1% * $light
+                )};
+            --#{$klass}-light-#{$light}: #{scale-color(
+                    get-mui-color($klass),
+                    $lightness: 1% * $light
+                )};
+        }
+    }
+
+    --callout-primary: #d6feec;
+    --callout-secondary: #fff8ac;
+    --callout-success: #e1faea;
+    --callout-alert: #f7e4e1;
+    --callout-warning: #fff3d9;
+
+    // $highlight: var(--highlight);
+    // $highlight-rgb: var(--);
+    // $highlight-alternative: var(--);
+    // $highlight-alternative-rgb: var(--);
+}
+}

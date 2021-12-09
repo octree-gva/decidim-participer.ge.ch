@@ -1,0 +1,43 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .edit_user .columns {
+    margin-top: 12px;
+}
+ .tabs-content.vertical {
+    padding-left: 22px;
+    .switch.tiny {
+        min-height: 1.5rem;
+        height: auto;
+    }
+}
+ .row .tabs-content.vertical .row {
+    margin: 0 !important;
+}
+
+ .user-nickname {
+    label.is-invalid-label .row > span:last-of-type .form-error.is-visible {
+        margin-left: 0;
+    }
+    .row.collapse {
+        display: flex;
+        width: 100%;
+        .columns {
+            flex: 1;
+            width: auto;
+            float: none;
+            margin: 0;
+            padding: 0;
+            &.small-1 {
+                flex: 0;
+                padding: 0 0.5rem;
+            }
+        }
+    }
+    .form-input-extra-before,
+    .form-input-extra-after {
+        clear: both;
+        width: 100%;
+        margin-top: 2px;
+    }
+}
+}

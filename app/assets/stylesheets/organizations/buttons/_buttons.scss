@@ -1,0 +1,139 @@
+@import 'organizations/settings';
+body.#{$theme} {
+
+
+.button--double {
+    .button:first-child {
+        margin-right: 8px;
+    }
+    .button:last-child {
+        margin-left: 8px;
+    }
+}
+
+ .button,
+ a.button,
+ button.button {
+    border-radius: 100px;
+    padding: 19px 18px 17px 18px;
+    @include text-contrast($primary);
+    background-color: var(--primary);
+    text-transform: uppercase;
+    font-weight: 600;
+    &.expanded {
+        line-height: 1.2;
+    }
+    &.follow-button.secondary {
+        &:not(.hollow) {
+            color: var(--primary-dark-10);
+            &:hover,
+            &:active {
+                color: var(--primary-dark-10);
+            }
+            & .icon-wrap {
+                color: var(--primary-dark-10);
+            }
+        }
+        .icon-wrap {
+            border-right-width: 0px;
+            top: 4px;
+        }
+     
+        &.small .icon-wrap {
+            left: 10px;
+        }
+    }
+
+    &:hover {
+        background: var(--primary);
+        opacity: 0.94;
+        filter: none;
+        box-shadow: unset;
+        @include text-contrast($primary);
+
+        &.disabled,
+        &[disabled] {
+            @include text-contrast($primary);
+            opacity: 0.25;
+        }
+    }
+
+    &.opinion-toggle--meh:focus,
+    &.opinion-toggle--meh.is-active {
+        background: var(--primary);
+        @include text-contrast($primary);
+    }
+
+    &.small {
+        border-radius: 50px;
+        padding: 13px 11.5px 10.5px 11.5px;
+    }
+
+    &.tiny {
+        border-radius: 50px;
+        padding: 9px 8.5px 8.5px 8px;
+        min-width: 36.61px;
+        &.process-nav__more {
+            border-radius: 4px;
+        }
+    }
+
+    &--muted:not(.is-active) {
+        background: var(--grey);
+    }
+
+    &.primary,
+    &.primary.light,
+    &.primary.button--shadow,
+    &.primary.dark {
+        border-color: var(--primary);
+        background-color: var(--primary);
+        &,
+        &.success,
+        &.active,
+        &.disabled,
+        &[disabled] {
+            &,
+            &:active,
+            &:hover,
+            &:focus {
+                color: var(--primary-dark);
+                @include text-contrast($primary);
+            }
+        }
+    }
+
+    &.secondary,
+    &.secondary.light,
+    &.secondary.button--shadow,
+    &.secondary.dark {
+        &,
+        &.button--icon,
+        &.hollow.button--icon,
+        &.hollow.expanded.button--icon {
+            &,
+            &.active,
+            &.disabled,
+            &[disabled] {
+                background-color: var(--secondary-light);
+                border-color: var(--secondary-light);
+                filter: none;
+                &,
+                &:active,
+                &:hover,
+                &:focus {
+                    @include text-contrast(
+                        $secondary
+                    );
+                    filter: none;
+                }
+            }
+        }
+    }
+
+    .input-group-button button,
+    .input-group-button .button  {
+        padding: 0.5rem 1rem;
+    }
+}
+}

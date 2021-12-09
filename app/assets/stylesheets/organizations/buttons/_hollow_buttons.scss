@@ -1,0 +1,44 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .button {
+    &.hollow {
+        border-color: var(--primary-dark-10);
+        &,
+        &.primary,
+        &.success,
+        &.alert,
+        &.warning {
+            background: transparent;
+            &:hover {
+                background: transparent;
+                opacity: 0.87;
+            }
+        }
+
+        &,
+        &.active,
+        &.disabled,
+        &[disabled] {
+            &,
+            &:active,
+            &:hover,
+            &:focus {
+                border-color: var(--primary-dark-10);
+                color: var(--primary-dark-10);
+            }
+        }
+
+        &.secondary {
+            background: var(--secondary-light);
+            color: black;
+            border-color: var(--secondary-light);
+            &:hover {
+                color: black;
+                background: var(--secondary-light);
+                opacity: 0.87;
+                border-color: var(--secondary-light);
+            }
+        }
+    }
+}
+}

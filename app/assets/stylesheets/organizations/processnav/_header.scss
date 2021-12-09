@@ -1,0 +1,15 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .process-header__phase > a:not(.button) {
+    display: block;
+    float: left;
+    margin-top: 20px;
+    margin-right: 16px;
+}
+
+ .process-header__phase::after {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+}

@@ -34,18 +34,19 @@ module Decidim
     end
 
     def link_to_category
-      accessible_title = t("decidim.tags.filter_results_for_category", resource: category_name)
+      accessible_title = t("decidim.tags.filter_results_for_category", resource: decidim_html_escape(category_name))
 
       link_to category_path, title: accessible_title do
         sr_title = content_tag(
           :span,
           accessible_title,
-          class: "show-for-sr"
+          class: "show-for-sr overrides-octree"
         )
         display_title = content_tag(
           :span,
-          category_name,
-          "aria-hidden": true
+          decidim_html_escape(category_name),
+          "aria-hidden": true, 
+          class: "overrides-octree"
         )
 
         sr_title + display_title
@@ -65,18 +66,19 @@ module Decidim
     end
 
     def link_to_scope
-      accessible_title = t("decidim.tags.filter_results_for_scope", resource: scope_name)
+      accessible_title = t("decidim.tags.filter_results_for_scope", resource: decidim_html_escape(scope_name))
 
       link_to scope_path, title: accessible_title do
         sr_title = content_tag(
           :span,
           accessible_title,
-          class: "show-for-sr"
+          class: "show-for-sr overrides-octree"
         )
         display_title = content_tag(
           :span,
-          scope_name,
-          "aria-hidden": true
+          decidim_html_escape(scope_name),
+          "aria-hidden": true, 
+          class: "overrides-octree"
         )
 
         sr_title + display_title

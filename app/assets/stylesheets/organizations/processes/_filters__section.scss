@@ -1,0 +1,50 @@
+@import 'organizations/settings';
+body.#{$theme} { 
+    .filters__section {
+        fieldset {
+            display: flex;
+            flex-wrap: wrap;
+            legend,
+            label,
+            .data-picker {
+                flex: 1;
+            }
+        }
+        .mini-title {
+            min-width: 210px;
+            margin-bottom: 8px;
+        }
+        .picker-prompt > a {
+            color: black;
+        }
+        .filters__search button.button {
+            padding-top: 14px;
+        }
+    }
+    .inline-filters button[data-toggle] {
+        color: var(--primary-dark-10);
+        &:hover {
+            color: var(--primary-dark-10);
+            opacity:0.87;
+            
+        }
+    }
+    #participatory-space-filters .picker-prompt,
+    #participatory-space-filters select,
+    #participatory-space-filters .inline-filters button[data-toggle],
+    .inline-filters #participatory-space-filters button[data-toggle],
+    .picker-prompt,
+    select,
+    .inline-filters button[data-toggle],
+    .inline-filters button[data-toggle] {
+        float: none;
+        width: 100%;
+        min-width: 310px;
+    }
+
+
+.data-picker.picker-single .picker-values div a::after,
+.data-picker .picker-prompt a::after {
+    margin-left: 16px;
+}
+}

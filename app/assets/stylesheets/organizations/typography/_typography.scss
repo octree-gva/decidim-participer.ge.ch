@@ -1,0 +1,33 @@
+@import 'organizations/settings';
+body.#{$theme} {
+& {
+    color: black;
+    &,
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        font-family: 'Inter', Helvetica, Roboto, Arial, sans-serif;
+        font-weight: normal;
+    }
+
+    .text-highlight.heading1 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 3rem;
+    }
+
+}
+
+& * {
+    -webkit-font-smoothing: antialiased;
+}
+}

@@ -1,0 +1,18 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .pagination {
+    .current{
+        border-radius: 0;
+        background: var(--primary);
+    }
+    a, button{
+        color: black;
+        &:hover{
+            background: var(--grey-light);
+        }
+    }
+    li {
+        font-size: 14px;
+    }
+}
+}

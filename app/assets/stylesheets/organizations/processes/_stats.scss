@@ -1,0 +1,6 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .process-stats__data::after {
+    border-left-color: var(--secondary-light);
+}
+}

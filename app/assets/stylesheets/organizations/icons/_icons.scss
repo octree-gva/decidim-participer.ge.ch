@@ -1,0 +1,35 @@
+ @import 'organizations/settings';
+body.#{$theme} {
+    .comment__votes--down {
+        &, & .icon {
+            color: var(--alert);
+            &:hover{
+                color: var(--alert);
+                opacity: 0.8;
+            }
+        }
+           &.is-vote-notselected,  &.is-vote-notselected .icon {
+            opacity: 0.3;
+            &:hover{
+                opacity: 0.3;
+            }
+        }
+    }
+    .comment__votes--up {
+        &, & .icon {
+            color: var(--success);
+            &:hover{
+                color: var(--success);
+                opacity: 0.8;
+            }
+        }
+        &.is-vote-notselected,  &.is-vote-notselected .icon {
+            opacity: 0.3;
+            &:hover{
+                opacity: 0.3;
+            }
+        }
+    }
+
+
+}

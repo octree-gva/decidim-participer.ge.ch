@@ -1,0 +1,50 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .topbar__admin__link {
+    &,
+    a {
+        font-weight: bold;
+        text-transform: uppercase;
+        span {
+            font-size: 0.9rem;
+            padding-left: 4px;
+        }
+    }
+    svg {
+        margin-left: 4px;
+    }
+
+    border-radius: 50px;
+    padding: 4px 12px;
+    margin-left: 12px;
+    &:hover,
+    &:focus {
+        border-radius: 50px;
+        margin-left: 16px;
+    }
+    &,
+    a {
+        color: black;
+        background-color: var(--secondary-light);
+        border-color: var(--secondary-light);
+        &:hover,
+        &:focus {
+            color: black;
+            background-color: var(--secondary-light);
+            border-color: var(--secondary-light);
+        }
+    }
+    &.topbar__edit__link,
+    &.topbar__edit__link a {
+        color: white;
+        background-color: var(--primary);
+        border-color: var(--primary);
+        &:hover,
+        &:focus {
+            color: white;
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+    }
+}
+}

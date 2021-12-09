@@ -1,0 +1,20 @@
+@import 'organizations/settings';
+body.#{$theme} {
+
+ .floating-helper{
+    z-index: 999;
+    .floating-helper__icon {
+        @include text-contrast($secondary);
+        background: var(--secondary)
+    }
+} 
+ .floating-helper__wrapper{
+    .floating-helper__content-close {
+        &, &:active, &:focus{
+            @include text-contrast($secondary);
+            background: var(--secondary)
+        }
+    }
+
+}
+}

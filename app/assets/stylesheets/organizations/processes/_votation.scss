@@ -1,0 +1,43 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .columns.section.view-side .card .card__content {
+    .buttons__row {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        display: flex;
+    }
+    .button {
+        margin-bottom: 0.5rem;
+        flex: 1 0 8px;
+    }
+    .column.small-3.collapse,
+    .column.small-9.collapse {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .column.small-9.collapse,
+    .column.small-3.collapse {
+        width: auto;
+        flex: 1;
+    }
+
+    .buttons__row button,
+    .buttons__row button.button,
+    .buttons__row .button,
+    .buttons__row a {
+        &,
+        &:hover {
+            background-color: transparent;
+            color: var(--primary-dark-10);
+            border-color: var(--primary-dark-10);
+            border-radius: 100px;
+        }
+        &:hover {
+            opacity: 0.87;
+        }
+    }
+}
+}

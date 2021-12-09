@@ -1,0 +1,7 @@
+ 
+ @import 'organizations/settings';
+body.#{$theme} {
+    .side-panel__tabs .tabs-title.is-active > [role=tab], .side-panel__tabs .tabs-title.is-active > a {
+        color: var(--primary);
+    }
+}

@@ -1,0 +1,37 @@
+@import "decidim/email";
+@import "organizations/typography/font-face";
+table.body{
+
+    body,
+    table.body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    td,
+    th,
+    a{
+        font-family: Inter, Helvetica, Roboto, Arial, sans-serif;
+    }
+}
+table.body .cityhall-bar,
+table.body table.main.container th.decidim-bar,
+table.body table.main.container td.decidim-bar{
+  background-color: #f3f3f3 !important;
+}
+
+table.body table.main.container{
+  width: auto;
+  max-width: 80%;
+}
+table.body .cityhall-bar {
+    padding-top: 24px;
+}
+@media only screen and (min-width: 596px){
+    table.body table.main.container{
+        max-width: 1256px;
+    }
+}

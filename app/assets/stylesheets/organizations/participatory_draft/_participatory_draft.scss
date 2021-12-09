@@ -1,0 +1,120 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .hover-section {
+    display: flex;
+
+    .hidden-section {
+        display: block;
+        align-self: center;
+        opacity: 0;
+        transition: opacity 0.32s ease-in-out;
+        border-left: 1px solid white;
+        .medium-8 {
+            width: 100%;
+        }
+    }
+
+    a.card__link--block {
+        color: black;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .button-group {
+        .button:first-child {
+            border-color: var(--primary);
+            color: white;
+            background: var(--primary);
+            margin-right: 8px;
+            &:hover,
+            &:active {
+                border-color: var(--primary);
+                color: white;
+                background: var(--primary);
+
+                opacity: 0.87;
+            }
+        }
+        .button:last-child {
+            border-color: var(--primary-dark-10);
+            color: var(--primary-dark-10);
+            background: transparent;
+            margin-left: 8px;
+            &:hover,
+            &:active {
+                border-color: var(--primary-dark-10);
+                color: var(--primary-dark-10);
+                background: transparent;
+                opacity: 0.87;
+            }
+        }
+    }
+}
+ .hover-section:hover .hidden-section {
+    opacity: 1;
+    transition: opacity 0.16s ease-in-out;
+}
+
+ .hover-section {
+    @media screen and (max-width: 39.99875em) {
+        background-color: #fff;
+        border: 1px solid #e8e8e8;
+        box-shadow: 0 0 20px 0 RGB(26 24 29 / 20%);
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        cursor: pointer;
+        flex-wrap: wrap;
+        margin-top: 8px;
+        margin-bottom: 16px;
+
+        .hidden-section {
+            padding: 0 !important;
+
+            opacity: 1;
+            min-width: 100%;
+            float: none;
+            clear: both;
+            display: flex;
+            margin-bottom: 1.25rem;
+        }
+        .medium-8 {
+            width: 100%;
+        }
+
+        .button.medium-4,
+        .button {
+            width: auto !important;
+            flex: 1;
+            float: none;
+        }
+
+        .button.expanded {
+            width: 91% !important;
+            border-radius: 50px;
+            padding: 13px 11.5px 10.5px 11.5px;
+            margin-left: 16px !important;
+            margin-right: 16px !important;
+            margin-bottom: 16px !important;
+            &.follow-button .icon-wrap{
+                top: -1px;
+            }
+        }
+
+        .button-group {
+            width: 100%;
+            padding: 0.625rem;
+            margin-bottom: 0 !important;
+            .button.expanded,
+            .button {
+                border-radius: 50px;
+                padding: 13px 11.5px 10.5px 11.5px;
+                margin: 0 8px !important;
+                &.follow-button .icon-wrap{
+                    top: -1px;
+                }
+            }
+        }
+    }
+}
+}

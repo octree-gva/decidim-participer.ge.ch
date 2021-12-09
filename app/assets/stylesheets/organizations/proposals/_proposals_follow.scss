@@ -1,0 +1,12 @@
+@import 'organizations/settings';
+body.#{$theme} {
+ .follow-button:not(.hollow),
+ .follow-button.secondary:not(.hollow) {
+    color: var(--primary-dark-10);
+    &:hover,
+    &:active {
+        color: var(--primary-dark-10);
+        opacity: 0.87;
+    }
+}
+}

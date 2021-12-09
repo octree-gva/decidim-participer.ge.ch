@@ -1,0 +1,46 @@
+    @import 'util/util';
+
+
+
+    $theme: "t-1";
+    $tonalOffset: 30%;
+    $primary: #58b78d;
+    $primary-rgb: 88, 183, 141;
+    $secondary: #ffff55;
+    $secondary-rgb: 252, 232, 0;
+    $success: #3adb76;
+    $success-rgb: 58, 219, 118;
+    $warning: #ffae00;
+    $warning-rgb: 255, 174, 0;
+    $alert: #cc4b37;
+    $alert-rgb: 204, 75, 55;
+    $grey: #cacaca;
+
+    $material-palette: (
+        primary: $primary,
+        secondary: $secondary,
+        success: $success,
+        warning: $warning,
+        alert: $alert,
+        muted: $grey,
+    );
+
+    @function get-mui-color($key) {
+        @return map-get($material-palette, $key);
+    }
+
+@mixin text-contrast($n) {
+    $color-brightness: round(
+        (red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000
+    );
+    $light-color: round(
+        (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) /
+            1000
+    );
+
+    @if abs($color-brightness) < ($light-color / 1.5) {
+        color: white;
+    } @else {
+        color: black;
+    }
+}

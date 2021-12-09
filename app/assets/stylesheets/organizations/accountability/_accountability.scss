@@ -1,0 +1,11 @@
+@import 'organizations/settings';
+body.#{$theme} {
+    .accountability {
+        .categories .categories--group .card__link .category--line strong {
+            color: black;
+        }
+        button.button {
+            padding-top: 14px;
+        }
+    }
+}
