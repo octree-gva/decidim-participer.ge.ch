@@ -58,9 +58,6 @@ RUN apk update && \
 RUN addgroup -S $GROUP -g $GROUP_UID && \
     adduser -S -g '' -u $USER_UID -G $GROUP $USER
 
-VOLUME /home/$USER/app/storage
-VOLUME /home/$USER/app/public
-VOLUME /home/$USER/app/log
 
 # Copy app & gems
 COPY --from=dependancy /usr/local/bundle/ /usr/local/bundle/
