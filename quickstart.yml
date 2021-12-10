@@ -2,23 +2,8 @@ version: "3"
 services:
   app:
     image: decidim
-    build:
-      context: .
-      dockerfile: Dockerfile-quickstart
-    volumes:
-      - .:/home/decidim/app
-    environment:
-      - RAILS_PORT=3000
-      - DB_HOST=pg
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=p28ZRFZeitqovv9Puvse
-      - DB_DATABASE=decidim_quickstart
-      - RAILS_ENV=production
-      - RAILS_FORCE_SSL=false
-      - SECRET_KEY_BASE=J9jEZgGFudNB4kEeqYHwoht4IQvinBhf
-      - FROM_MAILER_ADDRESS=me@domain.org
-      - APPLICATION_NAME=My application name
-      - LOG_LEVEL=debug
+    build: .
+    env_file: .env
     ports:
       - 3000:3000
     depends_on:

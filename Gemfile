@@ -14,3 +14,5 @@ gem 'bootsnap', '~> 1.5', '>= 1.5.1'
 
 gem 'puma', '~> 5.1', '>= 5.1.1'
 gem 'uglifier', '~> 4.2'
+gem 'redis', '~> 4.5.1'
+gem 'hiredis', '~> 0.6.3'

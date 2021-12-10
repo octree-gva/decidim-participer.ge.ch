@@ -2,10 +2,12 @@ doc
 tmp
 storage
 k8s
-docker-compose*
+docker-compose.yml
+quickstart.yml
 .env
 Dockerfile
 .gitlab-ci.yml
+Dockerfile-*
 .git
 .gitignore
 .dump

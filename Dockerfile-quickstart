@@ -32,7 +32,8 @@
 #   * ../vendor: to cache gems
 ARG ALPINE_RUBY_VERSION=2.7.3
 ARG BUNDLER_VERSION=2.2.22
-ARG NODE_VERSION=v16.13.0 # Should exists for alpine, see https://unofficial-builds.nodejs.org/download/release/
+# Should exists for alpine, see https://unofficial-builds.nodejs.org/download/release/
+ARG NODE_VERSION=v16.13.0 
 ARG USER=decidim
 ARG USER_UID=1000
 ARG GROUP=admin

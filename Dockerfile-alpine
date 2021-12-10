@@ -12,7 +12,7 @@ ARG GROUP_UID=1000
 ########################################################################
 # Dependancy layer
 ########################################################################
-FROM git.octree.ch:4567/decidim/ocsin/024:build-base-${BUILD_BASE_SHA1}  AS dependancy
+FROM git.octree.ch:4567/decidim/ocsin/releases:build-base-${BUILD_BASE_SHA1}  AS dependancy
 
 ########################################################################
 # Final layer

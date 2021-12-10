@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # Clean tmp directory if exists
-if [ -d /code/tmp ]; then
-    rm -r /code/tmp/
+PID_FILE=${RAILS_PID_FILE:-"tmp/pids/server.pid"}
+if [ -f "$PID_FILE" ]; then
+    echo "removing pid file $PID_FILE"
+    rm -f "$PID_FILE"
 fi
 
-# Set user
+# Set a custom user
 addgroup --system --gid ${GROUP:-1000} app
 adduser --system --no-create-home --uid ${USER:-1000} --gid ${GROUP:-1000} app
 
@@ -14,10 +16,6 @@ chown -R app:app /code
 
 # Start puma as user 'app'
 su -m app -s /bin/bash <<'EOF'
-    # Clean assets
-    bundle exec rake assets:clobber
-    # Compile assets (including external stylesheets)
-    bundle exec rake assets:precompile
     # Start Decidim server
     bundle exec puma -C config/puma.rb
 EOF
