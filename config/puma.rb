@@ -29,7 +29,7 @@ if ["1", "true", "enabled"].include?(ENV.fetch("SSL_CUSTOM_CERT", "false"))
     ssl_host = ENV.fetch("SSL_CERT_HOST", '0.0.0.0')
     ssl_port = ENV.fetch("SSL_CERT_PORT", '8443')
     ssl_key_path = ENV.fetch("SSL_CERT_KEY_PATH", '/certs/privkey.pem')
-    ssl_cert_path = ENV.fetch("SSL_CERT_KEY_PATH", '/certs/fullchain.pem')
+    ssl_cert_path = ENV.fetch("SSL_CERT_FULLCHAIN_PATH", '/certs/fullchain.pem')
     puts "Bind puma on :#{ssl_port} with custom ssl certificates"
     ssl_bind ssl_host, ssl_port, { key: ssl_key_path, cert: ssl_cert_path }
 else

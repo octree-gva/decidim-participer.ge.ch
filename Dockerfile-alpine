@@ -5,9 +5,9 @@ ARG BUNDLER_VERSION=2.2.22
 # Should exists for alpine, see https://unofficial-builds.nodejs.org/download/release/
 ARG NODE_VERSION=v16.13.0 
 ARG USER=decidim
-ARG USER_UID=1000
+ARG USER_UID=1001
 ARG GROUP=admin
-ARG GROUP_UID=1000
+ARG GROUP_UID=1001
 
 ########################################################################
 # Dependancy layer

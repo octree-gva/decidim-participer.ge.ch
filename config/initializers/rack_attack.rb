@@ -6,12 +6,14 @@ if safelist_ips.present?
     end 
 end
 
-Rack::Attack.blocklist("block all access to system") do |request|
-    # Requests are blocked if the return value is truthy
-    if request.path.start_with?("/system")
-        !(Decidim.system_accesslist_ips.any? && 
-            Decidim.system_accesslist_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.any?)
-    end
+if ["true", "enabled", "1"].include?(ENV.fetch('DECIDIM_BLOCK_SYSTEM', 'disabled'))
+  Rack::Attack.blocklist("block all access to system") do |request|
+      # Requests are blocked if the return value is truthy
+      if request.path.start_with?("/system")
+          !(Decidim.system_accesslist_ips.any? && 
+              Decidim.system_accesslist_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.any?)
+      end
+  end
 end
 
 Rack::Attack.blocklist('fail2ban pentesters') do |req|
