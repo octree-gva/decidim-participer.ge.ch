@@ -30,15 +30,15 @@ if ["1", "true", "enabled"].include?(ENV.fetch("SSL_CUSTOM_CERT", "false"))
     ssl_port = ENV.fetch("SSL_CERT_PORT", '8443')
     ssl_key_path = ENV.fetch("SSL_CERT_KEY_PATH", '/certs/privkey.pem')
     ssl_cert_path = ENV.fetch("SSL_CERT_FULLCHAIN_PATH", '/certs/fullchain.pem')
+    ssl_verify_mode = ENV.fetch("SSL_VERIFY_MODE", 'none')
     puts "Bind puma on :#{ssl_port} with custom ssl certificates"
-    ssl_bind ssl_host, ssl_port, { key: ssl_key_path, cert: ssl_cert_path }
+    ssl_bind ssl_host, ssl_port, { key: ssl_key_path, cert: ssl_cert_path, verify_mode: ssl_verify_mode }
 else
     puma_port = ENV.fetch("PORT", 3000)
     puts "Bind puma on :#{puma_port} with no certificates"
     # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
     port puma_port
 end
-
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
 # before forking the application. This takes advantage of Copy On Write
