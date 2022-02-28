@@ -62,6 +62,7 @@ RUN addgroup -S $GROUP -g $GROUP_UID && \
 # Copy app & gems
 COPY --from=dependancy /usr/local/bundle/ /usr/local/bundle/
 COPY --chown=$USER:$GROUP --from=dependancy /home/$USER/app ./
+COPY --chown=$USER:$GROUP --from=dependancy /certs /certs
 
 # Add imagemagick policy
 RUN mv $RAILS_ROOT/.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml && \
@@ -70,8 +71,6 @@ RUN mv $RAILS_ROOT/.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml 
 
 # Switch to non-root system user
 USER $USER
-# Prepare an empty directory for the certificates 
-RUN mkdir -p /certs
 
 # Define bash as the default shell
 SHELL ["/bin/bash", "-l", "-c"]

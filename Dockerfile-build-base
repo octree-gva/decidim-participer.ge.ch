@@ -105,3 +105,5 @@ RUN bundle config set without 'development test' && \
 
 # Add code
 COPY . ./
+
+RUN mkdir -p /certs
