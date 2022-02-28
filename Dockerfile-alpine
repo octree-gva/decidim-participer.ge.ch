@@ -70,11 +70,12 @@ RUN mv $RAILS_ROOT/.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml 
 
 # Switch to non-root system user
 USER $USER
-
+# Prepare an empty directory for the certificates 
+RUN mkdir -p /certs
 
 # Define bash as the default shell
 SHELL ["/bin/bash", "-l", "-c"]
 
 ENTRYPOINT [".docker/entrypoint.sh"]
 
-CMD ["bundle", "exec", "rails", "server"]
+CMD ["bundle", "exec", "rails", "server", "puma"]
