@@ -13,15 +13,11 @@
 #   * ALPINE_RUBY_VERSION: the version of alpine ruby to use, without "ruby-" prefix
 #   * BUNDLER_VERSION: bundler version
 #   * NODE_VERSION: node version with "v" prefix
-#   * USER: the username of the user that will run the app
-#   * USER_UID: System non-root user UID 
-#   * GROUP: group name that will run the app
-#   * GROUP_UID: group UID that will run the app
 #
 # Filesystem
 # ===
-#   * /home/<USER>/app : Working directory
-#   * /home/<USER>/vendor : Installed gems
+#   * /home/decidim/app : Working directory
+#   * /home/decidim/vendor : Installed gems
 #
 # Volumes
 # ===
@@ -34,10 +30,7 @@ ARG ALPINE_RUBY_VERSION=2.7.3
 ARG BUNDLER_VERSION=2.2.22
 # Should exists for alpine, see https://unofficial-builds.nodejs.org/download/release/
 ARG NODE_VERSION=v16.13.0 
-ARG USER=decidim
-ARG USER_UID=1001
-ARG GROUP=admin
-ARG GROUP_UID=1001
+
 
 ########################################################################
 # Dependancy layer
@@ -45,15 +38,11 @@ ARG GROUP_UID=1001
 FROM ruby:${ALPINE_RUBY_VERSION}-alpine
 ARG BUNDLER_VERSION
 ARG NODE_VERSION
-ARG USER
-
-ENV USER=$USER 
-
 ENV BUNDLER_VERSION=$BUNDLER_VERSION \
     BUNDLE_JOBS=4 \
     BUNDLE_RETRY=3 \
     NODE_VERSION=$NODE_VERSION \
-    RAILS_ROOT=/home/$USER/app \ 
+    RAILS_ROOT=/home/decidim/app \ 
     NVM_DIR=/usr/local/nvm \
     NVM_NODEJS_ORG_MIRROR=https://unofficial-builds.nodejs.org/download/release \
     NVM_ARCH=x64-musl  \
