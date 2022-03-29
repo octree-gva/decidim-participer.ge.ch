@@ -19,7 +19,6 @@ LABEL maintainer="hello@octree.ch"
 ARG ALPINE_RUBY_VERSION
 ARG BUNDLER_VERSION
 
-
 ENV RAILS_ENV=production \
     RACK_ENV=production \
     TZ=Europe/Zurich \
@@ -30,7 +29,6 @@ ENV RAILS_ENV=production \
 
 ENV PATH=$PATH:$RAILS_ROOT/bin
 
-WORKDIR $RAILS_ROOT
 
 RUN apk update && \
     apk upgrade && \
@@ -45,9 +43,8 @@ RUN apk update && \
         && rm -rf /var/cache/apk/*
 
 # Add imagemagick policy
-RUN mv $RAILS_ROOT/.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml && \
-    # Set bundle config again, to have passing bundle check
-    bundle config set without 'development test'
+COPY ./.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml 
+RUN bundle config set without 'development test'
 
 # Create system user to run as non-root.
 ONBUILD COPY .user.conf .
@@ -59,8 +56,8 @@ ONBUILD RUN source .user.conf && addgroup -S decidim -g $GROUP_UID && \
 COPY --from=dependancy /usr/local/bundle/ /usr/local/bundle/
 # Switch to non-root system user
 ONBUILD USER decidim
-COPY --chown=decidim:decidim --from=dependancy $RAILS_ROOT ./
-
+ONBUILD WORKDIR $RAILS_ROOT
+ONBUILD RUN mkdir -p $RAILS_ROOT/storage $RAILS_ROOT/public $RAILS_ROOT/log $RAILS_ROOT/certs
 ONBUILD VOLUME $RAILS_ROOT/storage
 ONBUILD VOLUME $RAILS_ROOT/public
 ONBUILD VOLUME $RAILS_ROOT/log

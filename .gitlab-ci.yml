@@ -32,3 +32,30 @@ build:alpine:
   script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile-alpine --build-arg BUILD_BASE_SHA1=${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA} --destination $CI_REGISTRY_IMAGE/releases:alpine-${CI_COMMIT_TAG:-$CI_COMMIT_SHORT_SHA}
+
+# Construction d'une image Docker pour les builds OCSIN
+build:latest-dev:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always 
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile-build-base --destination $CI_REGISTRY_IMAGE/releases:build-base-latest
+
+# Construction d'une image Docker pour l'image finale d'OCSIN
+build:latest-alpine:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  needs: ["build:latest-dev"]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always 
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile-alpine --build-arg BUILD_BASE_SHA1=latest --destination $CI_REGISTRY_IMAGE/releases:alpine-latest
