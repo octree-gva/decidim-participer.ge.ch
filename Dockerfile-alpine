@@ -57,11 +57,7 @@ COPY --from=dependancy /usr/local/bundle/ /usr/local/bundle/
 # Switch to non-root system user
 ONBUILD USER decidim
 ONBUILD WORKDIR $RAILS_ROOT
-ONBUILD RUN mkdir -p $RAILS_ROOT/storage $RAILS_ROOT/public $RAILS_ROOT/log $RAILS_ROOT/certs
-ONBUILD VOLUME $RAILS_ROOT/storage
-ONBUILD VOLUME $RAILS_ROOT/public
-ONBUILD VOLUME $RAILS_ROOT/log
-ONBUILD VOLUME $RAILS_ROOT/certs
+
 
 
 # Define bash as the default shell
