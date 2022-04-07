@@ -42,6 +42,7 @@ build:latest-dev:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: always 
+    - if: '$CI_COMMIT_REF_NAME == "master"'
   script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile-build-base --destination $CI_REGISTRY_IMAGE/releases:build-base-latest
@@ -56,6 +57,7 @@ build:latest-alpine:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: always 
+    - if: '$CI_COMMIT_REF_NAME == "master"'
   script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile-alpine --build-arg BUILD_BASE_SHA1=latest --destination $CI_REGISTRY_IMAGE/releases:alpine-latest
