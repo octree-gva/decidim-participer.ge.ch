@@ -2,7 +2,9 @@ version: "3"
 services:
   app:
     image: decidim
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-build-base
     env_file: .env
     ports:
       - 3000:3000
