@@ -38,3 +38,4 @@ nfs/
 .env*
 !.env.tmpl
 .DS_Store
+vendor

@@ -29,7 +29,6 @@ ENV RAILS_ENV=production \
 
 ENV PATH=$PATH:$RAILS_ROOT/bin
 
-
 RUN apk update && \
     apk upgrade && \
     gem update --system && \
@@ -39,8 +38,11 @@ RUN apk update && \
         tzdata \
         imagemagick \
         bash \
+        p7zip \
         vim \
         && rm -rf /var/cache/apk/*
+RUN mkdir -p $RAILS_ROOT/lib/seven_zip_ruby && \
+  ln -s /usr/lib/p7zip/7z.so $RAILS_ROOT/lib/seven_zip_ruby/7z.so
 
 # Add imagemagick policy
 COPY ./.docker/imagemagick-policy.xml /etc/ImageMagick-7/policy.xml 
@@ -58,11 +60,7 @@ COPY --from=dependancy /usr/local/bundle/ /usr/local/bundle/
 ONBUILD USER decidim
 ONBUILD WORKDIR $RAILS_ROOT
 
-
-
 # Define bash as the default shell
 SHELL ["/bin/bash", "-l", "-c"]
-
 ENTRYPOINT [".docker/entrypoint.sh"]
-
 CMD ["bundle", "exec", "rails", "server", "puma"]
