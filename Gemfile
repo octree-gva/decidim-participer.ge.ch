@@ -10,7 +10,7 @@ gem "decidim-verifications", "~> 0.24.3"
 
 gem "decidim-decidim_awesome", "~> 0.7.2"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "0.24-stable"
-gem "decidim-spam_signal", git: "https://github.com/octree-gva/decidim-module-spam_signal", branch: "quarantine"
+gem "decidim-spam_signal", git: "https://github.com/octree-gva/decidim-module-spam_signal", branch: "main"
 
 gem 'mini_racer'
 
