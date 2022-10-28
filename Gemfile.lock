@@ -1,3 +1,22 @@
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer
+  revision: 4b385c55996e390406ac68a8b5ab68b9da2c8817
+  branch: 0.24-stable
+  specs:
+    decidim-term_customizer (0.24.0)
+      decidim-admin (~> 0.24.0)
+      decidim-core (~> 0.24.0)
+
+GIT
+  remote: https://github.com/octree-gva/decidim-module-spam_signal
+  revision: 0ff45807467c6ae9b0f98309debef1e75c56f5d1
+  branch: main
+  specs:
+    decidim-spam_signal (0.24.3)
+      decidim-admin (= 0.24.3)
+      decidim-comments (= 0.24.3)
+      decidim-core (= 0.24.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -229,6 +248,10 @@ GEM
       decidim-core (= 0.24.3)
       kaminari (~> 1.2, >= 1.2.1)
       searchlight (~> 4.1)
+    decidim-decidim_awesome (0.7.2)
+      decidim-admin (>= 0.23.0, < 0.25)
+      decidim-core (>= 0.23.0, < 0.25)
+      sassc (~> 2.3)
     decidim-forms (0.24.3)
       decidim-core (= 0.24.3)
       wicked_pdf (~> 1.4)
@@ -364,6 +387,7 @@ GEM
     graphql (1.13.0)
     hashdiff (1.0.1)
     hashie (5.0.0)
+    hiredis (0.6.3)
     htmlentities (4.3.4)
     http-accept (1.7.0)
     http-cookie (1.0.4)
@@ -398,7 +422,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    libv8-node (16.10.0.0-x86_64-linux-musl)
+    libv8-node (16.10.0.0)
     loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -411,6 +435,7 @@ GEM
     mime-types-data (3.2021.1115)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     mini_racer (0.5.0)
       libv8-node (~> 16.10.0.0)
     minitest (5.14.4)
@@ -422,7 +447,8 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.7)
     nobspw (0.6.2)
-    nokogiri (1.12.5-x86_64-linux)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     oauth (0.5.8)
     oauth2 (1.4.7)
@@ -609,13 +635,18 @@ DEPENDENCIES
   bootsnap (~> 1.5, >= 1.5.1)
   decidim (~> 0.24.3)
   decidim-consultations (~> 0.24.3)
+  decidim-decidim_awesome (~> 0.7.2)
+  decidim-spam_signal!
+  decidim-term_customizer!
   decidim-verifications (~> 0.24.3)
+  hiredis (~> 0.6.3)
   mini_racer
   puma (~> 5.1, >= 5.1.1)
+  redis (~> 4.5.1)
   uglifier (~> 4.2)
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.7.3p183
 
 BUNDLED WITH
    2.2.22
